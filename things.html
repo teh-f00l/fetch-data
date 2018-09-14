@@ -1,0 +1,33 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+
+</head>
+<body>
+        <input id="thing" type="text" placeholder="enter a number" onchange="getThings()">
+        <h3 id="display"></h3>
+        <script>
+    
+                function getThings() {
+                    var x = document.getElementById('thing').value;
+
+                    fetch('https://jsonplaceholder.typicode.com/photos')
+                    .then (function(res) { return res.json()
+            
+                    })
+                    .then (function(data){
+                        console.log(typeof(x))
+                        for (var i = 0; i<x;i++){
+                            document.getElementById('display').innerHTML += `<img src="${data[i].thumbnailUrl}"/>`;
+                        }
+                    })
+                }
+                
+                </script>
+</body>
+</html>
